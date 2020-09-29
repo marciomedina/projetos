@@ -1,0 +1,39 @@
+from datetime import datetime as dt
+agora = dt.now()
+ano_atual = agora.year
+mes_atual = agora.month
+dia_atual = agora.day
+
+hora_atual = agora.hour-3
+minuto_atual = agora.minute
+segundo_atual = agora.second
+
+week = ('Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo')
+
+exibir_data = f"{dia_atual:02}/{mes_atual:02}/{ano_atual:02} - {hora_atual:02}h{minuto_atual:02}m{segundo_atual:02}s"
+print("Hoje é", week[agora.weekday()], exibir_data)
+
+print("\nDigite o dia em que você nasceu\n")
+
+dia = int(input("Dia:"))
+mes = int(input("Mês:"))
+ano = int(input("Ano:"))
+
+data = dt(ano, mes, dia, 0, 0, 0)
+
+ano_data = data.year
+mes_data = data.month
+dia_data = data.day
+
+print("\n")
+
+exibir_data2 = f"{dia_data:02}/{mes_data:02}/{ano_data:02}"
+if (data.weekday() == 5 or data.weekday() == 6):
+  print(exibir_data2, " Você nasceu em um: ", week[data.weekday()])
+else:
+  print(exibir_data2, " Você nasceu em uma: ", week[data.weekday()])
+
+diferenca = abs((agora - data).days)
+
+print("\nVocê já uso", diferenca, "dias de sua vida. Aproveite bem o restante deles!!!")
+
